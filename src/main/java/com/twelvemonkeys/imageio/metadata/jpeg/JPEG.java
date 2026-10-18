@@ -1,0 +1,47 @@
+package com.twelvemonkeys.imageio.metadata.jpeg;
+
+public interface JPEG {
+   int SOI = 65496;
+   int EOI = 65497;
+   int SOS = 65498;
+   int DQT = 65499;
+   int DHT = 65476;
+   int COM = 65534;
+   int DNL = 65500;
+   int DRI = 65501;
+   int DHP = 65502;
+   int EXP = 65503;
+   int TEM = 65281;
+   int DAC = 65484;
+   int APP0 = 65504;
+   int APP1 = 65505;
+   int APP2 = 65506;
+   int APP3 = 65507;
+   int APP4 = 65508;
+   int APP5 = 65509;
+   int APP6 = 65510;
+   int APP7 = 65511;
+   int APP8 = 65512;
+   int APP9 = 65513;
+   int APP10 = 65514;
+   int APP11 = 65515;
+   int APP12 = 65516;
+   int APP13 = 65517;
+   int APP14 = 65518;
+   int APP15 = 65519;
+   int SOF0 = 65472;
+   int SOF1 = 65473;
+   int SOF2 = 65474;
+   int SOF3 = 65475;
+   int SOF5 = 65477;
+   int SOF6 = 65478;
+   int SOF7 = 65479;
+   int SOF9 = 65481;
+   int SOF10 = 65482;
+   int SOF11 = 65483;
+   int SOF13 = 65485;
+   int SOF14 = 65486;
+   int SOF15 = 65487;
+   int SOF55 = 65527;
+   int LSE = 65528;
+}

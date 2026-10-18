@@ -1,0 +1,84 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+            // Gradle 6+ rejects plain-HTTP repositories unless you opt in explicitly,
+            // and that opt-in flag (allowInsecureProtocol) only exists since Gradle 6.0.
+            // ForgeGradle 2.1 must run on Gradle 2.7 - 4.x, where the property does not
+            // exist at all and using it would fail with:
+            //   Could not find method allowInsecureProtocol() for arguments [true]
+            // So enable it conditionally, which keeps this file valid on every version.
+            if (gradle.gradleVersion.tokenize('.')[0].toInteger() >= 6) {
+                allowInsecureProtocol = true
+            }
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "0.1.39"
+group = "cn.kazer"
+archivesBaseName = "KazerClient"
+
+minecraft {
+    version = "1.8.9-11.15.1.2318-1.8.9"
+    runDir = "run"
+    mappings = "stable_22"
+}
+
+// FIX 1: the sources use diamond operators, lambdas and method references, so they
+// must be compiled as Java 8. Gradle 4.x defaults sourceCompatibility to 1.6, which
+// made compileJava fail with "-source 1.6 does not support the diamond operator".
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+// FIX 2: every .java file in this project is UTF-8, but Gradle defaults to the
+// platform encoding (GBK on a Chinese Windows), which produced
+// "unmappable character for encoding GBK" errors. Force UTF-8 for all compilers.
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+processResources
+{
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+// FIX 4: Gradle's Jar task writes its own minimal MANIFEST.MF, which silently
+// discarded the coremod attributes from src/main/resources/META-INF/MANIFEST.MF.
+// Without FMLCorePlugin in the final jar manifest, Forge never loads
+// KazerCorePlugin, RuntimeTransformer never patches KeyBinding/ChatLine/etc.,
+// and the game crashes with ClassCastException on world join.
+jar {
+    exclude 'META-INF/MANIFEST.MF'
+    manifest {
+        attributes(
+            'FMLCorePlugin': 'cn.kazer.client189.animation.KazerCorePlugin',
+            'FMLCorePluginContainsFMLMod': 'true'
+        )
+    }
+}
+
+// FIX 3: the dev-only retromapping tasks (extractRangemapReplacedMain / retromapReplaced*)
+// produce build/retromapping/replacedMain.rangemap for IDE dev runs. Their SpecialSource2
+// child process dies silently in this environment, aborting build/assemble AFTER reobfJar
+// has already produced the distributable jar. They are not part of the production jar
+// pipeline, so disable them to keep `gradlew build` green.
+tasks.matching { it.name == 'extractRangemapReplacedMain' || it.name.startsWith('retromapReplaced') }.all {
+    it.enabled = false
+}

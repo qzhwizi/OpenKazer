@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+FMLCorePlugin: cn.kazer.client189.animation.KazerCorePlugin
+FMLCorePluginContainsFMLMod: true
+
