@@ -1,7 +1,7 @@
 # Kazer Client (1.8.9 Forge Mod)
 
 Kazer Client 是一个基于 **CheatBreaker (CB) 客户端** 反混淆、重构而来的 Minecraft 1.8.9 Forge 客户端模组。原版 CB 以混淆类名（`a.java`、`b.java`、`c/a.java` 等）发布，本仓库已将全部顶层类与包名还原为语义化命名（如 `CheatBreakerClient`、`ModuleManager`、`HudEditorScreen` 等）
-- 还有一些”lIIIIlIIllIIlIIlIIIlIIllI“等没有完全解开混淆
+
 
 > **免责声明**：本项目仅供学习与研究，原 CheatBreaker 客户端版权归其原作者所有。请勿用于任何违反 Minecraft EULA 或服务器规则的用途。
 
@@ -58,6 +58,7 @@ Kazer_Src\
 - 原始 CB jar 中所有单字母混淆类（`a`~`z`、`A` 及单字母包）已全部重命名为语义化名称，字段/方法名保留混淆原名（仅重命名类与包，保证最小改动）。
 - 部分原版类引用通过 `RuntimeTransformer` 在运行时注入，生产环境使用 SRG 名（`field_*`/`func_*`）匹配，源码中以 `is(name, "mcp名", "srg名")` 双名形式出现。
 - 构建脚本中的 `FIX 3`/`FIX 4` 注释为已修复的打包问题（retromapping 任务禁用、coremod MANIFEST 写入），请勿删除。
+- 还有一些”lIIIIlIIllIIlIIlIIIlIIllI“等没有完全解开混淆
 
 ## 许可
 
