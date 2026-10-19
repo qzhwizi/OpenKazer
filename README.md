@@ -14,8 +14,6 @@ Kazer Client 是一个基于 **CheatBreaker (CB) 客户端** 反混淆、重构�
 | 项目 | 要求 |
 |---|---|
 | 构建环境 | Windows + **JDK 8**（推荐 Eclipse Temurin 8），`JAVA_HOME` 指向 JDK 8 |
-| 运行环境 | Minecraft **1.8.9** + Forge **11.15.1.1902**（1.8.9），可选 OptiFine **HD U M5** |
-| 显存/内存 | 建议 `-Xmx4096M` 以上 |
 
 ```bat
 安装 JDK 8 并设置环境变量
@@ -34,7 +32,6 @@ build\libs\KazerClient-0.1.39.jar
 
 1. 用普通启动器安装 **Forge 1.8.9 (11.15.1.1902)**。
 2. 将 `KazerClient-0.1.39.jar` 放入 `.minecraft\mods\`。
-3. （可选）将 OptiFine `OptiFine_1.8.9_HD_U_M5.jar` 放入 `.minecraft\mods\1.8.9\`。
 4. 选择 Forge 1.8.9 的版本启动即可，无需额外配置。
 
 
