@@ -398,13 +398,13 @@ public final class RuntimeHooks {
       if (com.cheatbreaker.client.CheatBreakerClient.N() != null) {
          boolean var2 = (Boolean)com.cheatbreaker.client.CheatBreakerClient.N().globalSettings.showPotionInfo.d();
          if (!var2) {
-            ReflectionHelper.setPrivateValue(InventoryEffectRenderer.class, (InventoryEffectRenderer)var0, false, "hasActivePotionEffects", "hasActivePotionEffects");
+            ReflectionHelper.setPrivateValue(InventoryEffectRenderer.class, (InventoryEffectRenderer)var0, false, "hasActivePotionEffects", "field_147045_u");
          }
 
          if (!var2 || (Boolean)com.cheatbreaker.client.CheatBreakerClient.N().globalSettings.keepInventoryCentered.d()) {
             GuiContainer var3 = (GuiContainer)var0;
-            int var4 = ReflectionHelper.<Integer, GuiContainer>getPrivateValue(GuiContainer.class, var3, "xSize", "xSize");
-            ReflectionHelper.setPrivateValue(GuiContainer.class, var3, (var3.width - var4) / 2, "guiLeft", "guiLeft");
+            int var4 = ReflectionHelper.<Integer, GuiContainer>getPrivateValue(GuiContainer.class, var3, "xSize", "field_146999_f");
+            ReflectionHelper.setPrivateValue(GuiContainer.class, var3, (var3.width - var4) / 2, "guiLeft", "field_147003_i");
          }
       }
    }

@@ -52,7 +52,7 @@ public final class ClientBridge {
          : 1.0F;
       if (var0 && Minecraft.getMinecraft().currentScreen instanceof GuiContainer) {
          int var3 = ReflectionHelper.<Integer, GuiContainer>getPrivateValue(
-            GuiContainer.class, (GuiContainer)Minecraft.getMinecraft().currentScreen, "guiTop", "guiTop"
+            GuiContainer.class, (GuiContainer)Minecraft.getMinecraft().currentScreen, "guiTop", "field_147009_r"
          );
          NAMEPLATE.put(13, Math.max(NAMEPLATE.get(13), var3 + 9.0F));
       }
@@ -102,7 +102,7 @@ public final class ClientBridge {
    }
 
    public static int a(GuiNewChat var0) {
-      List var1 = ReflectionHelper.getPrivateValue(GuiNewChat.class, var0, "drawnChatLines", "drawnChatLines");
+      List var1 = ReflectionHelper.getPrivateValue(GuiNewChat.class, var0, "drawnChatLines", "field_146253_i");
       int var2 = 0;
       int var3 = Minecraft.getMinecraft().ingameGUI.getUpdateCounter();
 

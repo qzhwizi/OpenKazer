@@ -28,7 +28,7 @@ public final class ImeHooks {
       GuiTextField var1 = (GuiTextField)var0;
       if (var1.isFocused() && var1.getVisible()) {
          Minecraft var2 = Minecraft.getMinecraft();
-         int var3 = ReflectionHelper.<Integer, GuiTextField>getPrivateValue(GuiTextField.class, var1, "lineScrollOffset", "lineScrollOffset");
+         int var3 = ReflectionHelper.<Integer, GuiTextField>getPrivateValue(GuiTextField.class, var1, "lineScrollOffset", "field_146225_q");
          FontRenderer var4 = ReflectionHelper.getPrivateValue(GuiTextField.class, var1, "fontRendererInstance", "field_146211_a");
          String var5 = var4.trimStringToWidth(var1.getText().substring(var3), var1.getWidth());
          int var6 = var1.getCursorPosition() - var3;
@@ -51,23 +51,23 @@ public final class ImeHooks {
       if (var0 instanceof GuiEditSign) {
          GuiEditSign var4 = (GuiEditSign)var0;
          TileEntitySign var5 = ReflectionHelper.getPrivateValue(GuiEditSign.class, var4, "tileSign", "field_146848_f");
-         int var6 = ReflectionHelper.<Integer, GuiEditSign>getPrivateValue(GuiEditSign.class, var4, "editLine", "editLine");
+         int var6 = ReflectionHelper.<Integer, GuiEditSign>getPrivateValue(GuiEditSign.class, var4, "editLine", "field_146851_h");
          var3 = cn.kazer.client189.input.ImeCaretPosition.a(var0.width, var0.height, var6, var2.getStringWidth(var5.signText[var6].getUnformattedText()), var2.FONT_HEIGHT);
       } else if (var0 instanceof GuiScreenBook) {
          GuiScreenBook var13 = (GuiScreenBook)var0;
-         boolean var14 = ReflectionHelper.<Boolean, GuiScreenBook>getPrivateValue(GuiScreenBook.class, var13, "bookIsUnsigned", "bookIsUnsigned");
+         boolean var14 = ReflectionHelper.<Boolean, GuiScreenBook>getPrivateValue(GuiScreenBook.class, var13, "bookIsUnsigned", "field_146475_i");
          if (!var14) {
             return;
          }
 
-         boolean var15 = ReflectionHelper.<Boolean, GuiScreenBook>getPrivateValue(GuiScreenBook.class, var13, "bookGettingSigned", "bookGettingSigned");
+         boolean var15 = ReflectionHelper.<Boolean, GuiScreenBook>getPrivateValue(GuiScreenBook.class, var13, "bookGettingSigned", "field_146480_s");
          int var7 = (var0.width - 192) / 2;
          if (var15) {
             String var8 = ReflectionHelper.getPrivateValue(GuiScreenBook.class, var13, "bookTitle", "field_146482_z");
             var3 = cn.kazer.client189.input.ImeCaretPosition.a(var7 + 94, 50, var2.getStringWidth(var8), var2.FONT_HEIGHT);
          } else {
             NBTTagList var16 = ReflectionHelper.getPrivateValue(GuiScreenBook.class, var13, "bookPages", "field_146483_y");
-            int var9 = ReflectionHelper.<Integer, GuiScreenBook>getPrivateValue(GuiScreenBook.class, var13, "currPage", "currPage");
+            int var9 = ReflectionHelper.<Integer, GuiScreenBook>getPrivateValue(GuiScreenBook.class, var13, "currPage", "field_146484_x");
             String var10 = var16 != null && var9 >= 0 && var9 < var16.tagCount() ? var16.getStringTagAt(var9) : "";
             List var11 = var2.listFormattedStringToWidth(var10 + "§0_", 116);
             int var12 = Math.max(0, var2.getStringWidth((String)var11.get(var11.size() - 1)) - var2.getStringWidth("_"));

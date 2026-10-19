@@ -166,7 +166,7 @@ public final class RuntimeEventBridge {
       WindowsImeSupport.b();
       StartupSplashHooks.finish();
       if (var1.gui != null && var1.gui.getClass() == GuiMultiplayer.class) {
-         GuiScreen var2 = ReflectionHelper.getPrivateValue(GuiMultiplayer.class, (GuiMultiplayer)var1.gui, "parentScreen", "parentScreen");
+         GuiScreen var2 = ReflectionHelper.getPrivateValue(GuiMultiplayer.class, (GuiMultiplayer)var1.gui, "parentScreen", "field_146798_g");
          var1.gui = new cn.kazer.client189.screens.MultiplayerScreenEscReturn(var2);
       }
 
@@ -188,7 +188,7 @@ public final class RuntimeEventBridge {
       }
 
       if (var1.gui instanceof GuiScreenResourcePacks && !(var1.gui instanceof cn.kazer.client189.screens.KazerResourcePacksScreen)) {
-         GuiScreen var3 = ReflectionHelper.getPrivateValue(GuiScreenResourcePacks.class, (GuiScreenResourcePacks)var1.gui, "parentScreen", "parentScreen");
+         GuiScreen var3 = ReflectionHelper.getPrivateValue(GuiScreenResourcePacks.class, (GuiScreenResourcePacks)var1.gui, "parentScreen", "field_146965_f");
          var1.gui = new cn.kazer.client189.screens.KazerResourcePacksScreen(var3);
       }
    }
