@@ -60,6 +60,6 @@ Kazer_Src\
 ## 许可
 
 - 本仓库代码基于反编译的 CheatBreaker 客户端整理，**仅供学习交流**，不提供任何担保。
-- Minecraft 版权归 Mojang / Microsoft 所有；Forge 属于 MinecraftForge 团队；OptiFine 属于 sp614x。
+- Minecraft 版权归 Mojang ,此客户端居然还写着不归Mojang所有!
 
 > By deepseek v4.1 flash and wedlla
