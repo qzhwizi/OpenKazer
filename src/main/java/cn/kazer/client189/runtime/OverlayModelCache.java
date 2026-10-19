@@ -20,7 +20,8 @@ import net.minecraft.world.IBlockAccess;
 
 public final class OverlayModelCache {
    private static final ThreadLocal<OverlayModelCache.b> CACHE = new ThreadLocal<OverlayModelCache.b>() {
-      protected OverlayModelCache.b a() {
+      @Override
+      protected OverlayModelCache.b initialValue() {
          return new OverlayModelCache.b();
       }
    };

@@ -19,7 +19,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public final class TripwireTintModel implements IBakedModel {
    private final IBakedModel original;
    private final ThreadLocal<cn.kazer.client189.runtime.TripwireTintModel.a> local = new ThreadLocal<cn.kazer.client189.runtime.TripwireTintModel.a>() {
-      protected cn.kazer.client189.runtime.TripwireTintModel.a a() {
+      @Override
+      protected cn.kazer.client189.runtime.TripwireTintModel.a initialValue() {
          return new cn.kazer.client189.runtime.TripwireTintModel.a();
       }
    };
